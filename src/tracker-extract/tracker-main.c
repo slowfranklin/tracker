@@ -21,6 +21,9 @@
 #include "config.h"
 
 #define _XOPEN_SOURCE
+#ifndef __EXTENSIONS__
+#define __EXTENSIONS__
+#endif
 #include <time.h>
 #include <stdlib.h>
 #include <locale.h>
