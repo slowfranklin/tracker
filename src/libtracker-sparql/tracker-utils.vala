@@ -94,8 +94,8 @@ namespace Tracker.Sparql {
 	[CCode (cname = "uuid_generate")]
 	private extern static void uuid_generate ([CCode (array_length = false)] uchar[] uuid);
 
-	[CCode (cname = "uuid_unparse_lower")]
-	private extern static void uuid_unparse_lower ([CCode (array_length = false)] uchar[] uuid, char* out);
+	[CCode (cname = "uuid_unparse")]
+	private extern static void uuid_unparse ([CCode (array_length = false)] uchar[] uuid, char* out);
 
 	/**
 	 * tracker_sparql_get_uuid_urn:
@@ -115,7 +115,7 @@ namespace Tracker.Sparql {
 		string lower = (string) new char[37];
 
 		uuid_generate (base_uuid);
-		uuid_unparse_lower (base_uuid, (char *) lower);
+		uuid_unparse (base_uuid, (char *) lower);
 
 		// generate uuid
 		return "urn:uuid:%s".printf (lower);
